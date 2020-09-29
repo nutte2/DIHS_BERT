@@ -1,0 +1,20 @@
+# Program för att testa frågor och svar på Svenska
+
+!python -m deeppavlov install squad_bert
+!python -m deeppavlov interact squad_bert -d
+
+from deeppavlov import build_model, configs
+
+
+model_qa_ml = build_model(configs.squad.squad_bert_multilingual_freezed_emb, download=True)  
+
+context_en = "In meteorology, precipitation is any product of the condensation of atmospheric \
+  water vapor that falls under gravity. The main forms of precipitation include drizzle, rain, \
+  sleet, snow, graupel, and hail. Precipitation forms as smaller droplets coalesce via collision \
+  with other raindrops or ice crystals within a cloud. Short, intense periods of rain in scattered locations \
+  are called showers."
+  
+  
+model_qa_ml([context_en, context_en, context_en], 
+      ["Where do water droplets collide with ice crystals to form precipitation?"] )
+       
