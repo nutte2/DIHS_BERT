@@ -1,5 +1,7 @@
 # Program för att testa frågor och svar på Svenska
 
+!pip install deeppavlov
+
 !python -m deeppavlov install squad_bert
 !python -m deeppavlov interact squad_bert -d
 
